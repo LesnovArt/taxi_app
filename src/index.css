@@ -1,3 +1,7 @@
+
+@import './taxi_app/css/normalize.css';
+@import './taxi_app/css/helpers.css';
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,14 +10,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
-
-.wrapper{
-	padding-top: 5rem;
-	margin: 0auto;
-	width: 500px;
+.main-page{
+	padding: 1rem 2rem;
 }
+
+@import './taxi_app/css/header.css';
+@import './taxi_app/css/register.css';
+@import './taxi_app/css/login.css';
+@import './taxi_app/css/profile.css';
+@import './taxi_app/css/map.css';
+
