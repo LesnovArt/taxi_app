@@ -1,53 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Home } from './taxi_app/Home';
 import { About } from './taxi_app/About';
 import { Profile } from './taxi_app/Profile';
+import { Map } from './taxi_app/Map';
+import { Registration } from './taxi_app/Registration';
 
-const PAGES = {	
-	home: <Home />,
-	about: <About />,
-	profile: <Profile />
-}
+export const App = () => {
 
-class App extends React.Component {
+	const [ currentPage, setCurrentPage ] = useState({ currentPage: "home" })
 
-	state = { currentPage: "home" }
+	const PAGES = {
+		home: <Home setPage={setCurrentPage}/>,
+		about: <About />,
+		profile: <Profile />,
+		map: <Map />,
+		registration: <Registration setPage={setCurrentPage}/>
+	}
 
-	navigateTo = (page) => {
-		this.setState({ currentPage: page })
-	};
-
-	render() {
 		return (
 			<>
-				<header>
-					<nav>
-						<ul>
+				<header >
+					<nav >
+						<ul className="header__wrapper">
 							<li>
-								<button
+								<button className="header__menu btn"
 									onClick={() => {
-										this.navigateTo("home");
+										setCurrentPage("home");
 									}}
 								>
 									Home
 							</button>
 							</li>
 							<li>
-								<button
+								<button className="header__menu btn"
 									onClick={() => {
-										this.navigateTo("about");
+										setCurrentPage("registration");
+									}}
+								>
+									Registration
+							</button>
+							</li>
+							<li>
+								<button className=" header__menu btn"
+									onClick={() => {
+										setCurrentPage("about");
 									}}
 								>
 									about
 							</button>
 							</li>
-							<li>
-								<button
+							<li >
+								<button className="header__menu btn"
 									onClick={() => {
-										this.navigateTo("profile");
+										setCurrentPage("profile");
 									}}
 								>
 									profile
+							</button>
+							</li>
+							<li>
+								<button className="header__menu btn"
+									onClick={() => {
+										setCurrentPage("map");
+									}}
+								>
+									map
 							</button>
 							</li>
 						</ul>
@@ -55,15 +72,14 @@ class App extends React.Component {
 				</header>
 				<main>
 					<section>
-						{PAGES[this.state.currentPage]}
+						{PAGES[currentPage]}
 					</section>
 				</main>
 			</>
 		);
-	}
 }
 
-export default App;
+
 
 
 
