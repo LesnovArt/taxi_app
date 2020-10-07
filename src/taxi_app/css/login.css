@@ -1,27 +1,27 @@
-.login-wrapper{
+.login-wrapper {
 	width: 400px;
 	height: 450px;
-	background-color:  rgb(32, 70, 29);
+	background-color: rgb(32, 70, 29);
 	margin: 0 auto;
 	padding: 2rem;
 	border-radius: 8px;
 	color: rgb(238, 182, 108);
 }
-.login-wrapper__form{
+.login-wrapper__form {
 	display: flex;
 	flex-direction: column;
 }
-.login-wrapper__input{
+.login-wrapper__input {
 	padding: 3px 5px;
 	margin: 15px 0px;
-	border-bottom: 2px solid ;
+	border-bottom: 2px solid;
 	background-color: rgb(93, 136, 238);
 	color: rgb(238, 182, 108);
 }
-.login-wrapper__btn{
+.login-wrapper__btn {
 	margin-top: 3.5rem;
 	margin-left: 65%;
 	padding: 10px 40px;
 	background-color: rgb(238, 182, 108);
-	color:  rgb(32, 70, 29);
+	color: rgb(32, 70, 29);
 }

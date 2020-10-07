@@ -1,47 +1,47 @@
-.register-wrapper{
+.register-wrapper {
 	width: 400px;
 	height: 450px;
-	background-color:  rgb(32, 70, 29);
+	background-color: rgb(32, 70, 29);
 	margin: 0 auto;
 	padding: 2rem;
 	border-radius: 8px;
 	color: rgb(238, 182, 108);
 }
-.register-wrapper__link{
+.register-wrapper__link {
 	color: rgb(238, 182, 108);
 }
-.register-wrapper__input{
+.register-wrapper__input {
 	min-width: 90%;
 	margin: 8px 0px;
 	padding: 3px 5px;
-	border-bottom: 2px solid ;
+	border-bottom: 2px solid;
 	background-color: rgb(93, 136, 238);
 	color: rgb(238, 182, 108);
 }
-.register-wrapper__full-name{
+.register-wrapper__full-name {
 	display: flex;
 	flex-direction: row;
 	min-width: 90%;
 }
-.two-columns{
+.two-columns {
 	min-width: 40%;
 }
-.two-columns-input{
+.two-columns-input {
 	display: block;
 	min-width: 90%;
 	margin: 8px 2px;
 	padding: 3px 3px;
-	border-bottom: 2px solid ;
+	border-bottom: 2px solid;
 	background-color: rgb(93, 136, 238);
 	color: rgb(238, 182, 108);
 }
-.label-fullname{
+.label-fullname {
 	min-width: 40%;
 }
-.register-wrapper__btn{
+.register-wrapper__btn {
 	margin-top: 3.5rem;
 	margin-left: 65%;
 	padding: 10px 40px;
 	background-color: rgb(238, 182, 108);
-	color:  rgb(32, 70, 29);
+	color: rgb(32, 70, 29);
 }
