@@ -14,7 +14,7 @@ export const Registration = (props) => {
 		<div className="register-wrapper">
 			<h1 className="register-wrapper__title">Registration</h1>
 			<p>If You already have it - <a href="#login" className="register-wrapper__link" onClick={toHome}>WELLCOME</a></p>
-			<form>
+			<form >
 				<label htmlFor="email">Email address</label>
 				<input className="register-wrapper__input" type="text" name="email"></input>
 				<div className="register-wrapper__full-name">
