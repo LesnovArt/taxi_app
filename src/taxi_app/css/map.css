@@ -1,9 +1,14 @@
 .map-wrapper {
-	width: 400px;
-	height: 450px;
-	background-color: rgb(32, 70, 29);
+   position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	margin: 0 auto;
-	padding: 2rem;
-	border-radius: 8px;
-	color: rgb(238, 182, 108);
+}
+.map{
+   position: absolute;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
 }

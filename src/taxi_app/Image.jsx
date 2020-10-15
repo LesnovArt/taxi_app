@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ImageLogo = ({
+
+export const Image = ({
 	src, alt, className, width, height, circle, ...attrs
 }) => {
 	
@@ -24,11 +25,11 @@ const ImageLogo = ({
 			height={height}
 			{...attrs}
 		/>
-	)
-}
+	);
+};
 
-ImageLogo.PropTypes = {
-	src: PropTypes.srtring,
+Image.propTypes = {
+	src: PropTypes.string,
 	alt: PropTypes.string,
 	classNames: PropTypes.string,
 	width: PropTypes.number,
@@ -36,10 +37,12 @@ ImageLogo.PropTypes = {
 	circle: PropTypes.bool,
 }
 
-ImageLogo.defaultProps = {
-	src: '',
-	alt: 'image name',
-	className: '',
-}
+Image.defaultProps = {
+	src: " ",
+	alt: "image name",
+   className: " ",
+   width: 200,
+   heigth: 200,
+};
 
-export default ImageLogo
+

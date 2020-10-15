@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Home } from './taxi_app/Home';
-import { About } from './taxi_app/About';
 import { Profile } from './taxi_app/Profile';
 import { Map } from './taxi_app/Map';
 import { Registration } from './taxi_app/Registration';
@@ -10,7 +9,6 @@ export const App = () => {
 
 	const PAGES = {
 		home: <Home setPage={setCurrentPage} />,
-		about: <About />,
 		profile: <Profile />,
 		map: <Map />,
 		registration: <Registration setPage={setCurrentPage} />,
@@ -37,15 +35,6 @@ export const App = () => {
 									setCurrentPage('registration');
 								}}>
 								Registration
-							</button>
-						</li>
-						<li>
-							<button
-								className=" header__menu btn"
-								onClick={() => {
-									setCurrentPage('about');
-								}}>
-								about
 							</button>
 						</li>
 						<li>

@@ -21,8 +21,22 @@ code {
 	padding: 1rem 2rem;
 }
 
+.map-wrapper {
+   position: relative;
+   width: 100%;
+   height: 100%;
+	margin: 0 auto;
+}
+.map{
+   position: absolute;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
+}
+
 @import './taxi_app/css/header.css';
 @import './taxi_app/css/register.css';
 @import './taxi_app/css/login.css';
 @import './taxi_app/css/profile.css';
-@import './taxi_app/css/map.css';
+/* @import './taxi_app/css/map.css'; */
