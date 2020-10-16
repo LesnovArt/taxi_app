@@ -1,5 +1,6 @@
 @import './taxi_app/css/normalize.css';
 @import './taxi_app/css/helpers.css';
+
 html{
 	width: 100%;
 	height: 100%;
@@ -13,8 +14,8 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 1910px;
-	height: 1170px;
+	min-width: 1910px;
+	min-height: 1170px;
 }
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;

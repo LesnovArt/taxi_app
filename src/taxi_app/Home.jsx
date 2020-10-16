@@ -1,18 +1,31 @@
 import React from 'react';
-import { Image } from './Image';
+import { Image } from './_helpers/Image';
+import { Button } from './_helpers/Button';
 import logo from './img/logo.png';
+import PropTypes from 'prop-types';
+import { AuthContext } from '../App';
 
-export const Home = (props) => {
-	const onClick = (e) => {
-		e.preventDefault();
-		props.setPage('map');
-	};
+export const Home = ({setPage}) => {
 
-	const toRegister = (e) => {
-		props.setPage('registration')
+	Home.propTypes = {
+		setPage: PropTypes.func,
 	}
+
+	// const onClick = (e) => {
+	// 	e.preventDefault();
+	// 	setPage('map');
+	// };
+
+	const toRegister = () => {
+		setPage('registration')
+	}
+
+	const handleSubmit = ({}) => {
+		console.log()
+	}
+
 	return (
-		<>
+		<AuthContext.Consumer>
 			<div className="login-wrapper__box">
 				<Image src={logo} alt="logo" className="logo" />
 			</div>
@@ -24,7 +37,7 @@ export const Home = (props) => {
 						REGISTER
 					</a>
 				</p>
-				<form className="login-wrapper__form">
+				<form onSubmit={handleSubmit} className="login-wrapper__form">
 					<label htmlFor="email">Email:</label>
 					<input
 						className="login-wrapper__input"
@@ -41,11 +54,11 @@ export const Home = (props) => {
 						name="password"
 						size="28"
 					/>
-					<button onClick={onClick} className="login-wrapper__btn btn">
+					<Button type="submit" className="login-wrapper__btn btn">
 						Log In
-					</button>
+					</Button>
 				</form>
 			</div>
-		</>
+		</AuthContext.Consumer>
 	);
 };

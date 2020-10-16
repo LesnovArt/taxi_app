@@ -4,8 +4,14 @@ import { Profile } from './taxi_app/Profile';
 import { Map } from './taxi_app/Map';
 import { Registration } from './taxi_app/Registration';
 
+export const AuthContext = React.createContext({
+	isAuth: false,
+	toggleAuth: () => {},
+});
+
 export const App = () => {
 	const [currentPage, setCurrentPage] = useState({ currentPage: 'home' });
+	const [isAuth, toggleAuth] = useState({isAuth: false})
 
 	const PAGES = {
 		home: <Home setPage={setCurrentPage} />,
@@ -14,8 +20,10 @@ export const App = () => {
 		registration: <Registration setPage={setCurrentPage} />,
 	};
 
+	console.log({isAuth})
+
 	return (
-		<>
+		<AuthContext.Provider value={{isAuth, toggleAuth: toggleAuth}}>
 			<header>
 				<nav>
 					<ul className="header__wrapper">
@@ -61,6 +69,6 @@ export const App = () => {
 			<main>
 				<section>{PAGES[currentPage]}</section>
 			</main>
-		</>
+		</AuthContext.Provider>
 	);
 };

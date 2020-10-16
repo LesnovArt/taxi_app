@@ -1,15 +1,23 @@
 import React from 'react';
-import { Image } from './Image';
+import { Image } from './_helpers/Image';
+import { Button } from './_helpers/Button';
 import logo from './img/logo.png';
+import PropTypes from 'prop-types';
 
-export const Registration = (props) => {
+export const Registration = ({setPage}) => {
+	
+	Registration.propTypes = {
+		setPage: PropTypes.func,
+	}
+
 	const toMap = (e) => {
 		e.preventDefault();
-		props.setPage('map');
+		setPage('map');
 	};
-	const toHome = (e) => {
-		props.setPage('home');
+	const toHome = () => {
+		setPage('home');
 	};
+
 	return (
 		<>
 			<div className="register-wrapper__box">
@@ -23,7 +31,7 @@ export const Registration = (props) => {
 						WELLCOME
 					</a>
 				</p>
-				<form>
+				<form >
 					<label htmlFor="email">Email address</label>
 					<input className="register-wrapper__input" type="text" name="email"></input>
 					<div className="register-wrapper__full-name">
@@ -42,10 +50,10 @@ export const Registration = (props) => {
 					</div>
 					<label htmlFor="lastName">Password</label>
 					<input className="register-wrapper__input" type="text" name="password"></input>
-				</form>
-				<button onClick={toMap} className="register-wrapper__btn btn">
+					<Button onClick={toMap} className="register-wrapper__btn btn">
 					log in
-				</button>
+				</Button>
+				</form>
 			</div>
 		</>
 	);
