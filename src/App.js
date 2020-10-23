@@ -1,65 +1,71 @@
-import React, { useState } from 'react';
-import { Home } from './taxi_app/Home';
-import { Profile } from './taxi_app/Profile';
+import React, { Fragment, useState } from 'react';
+import { HomeWithAuth } from './taxi_app/Home';
+import { ProfileWithAuth } from './taxi_app/Profile';
 import { Map } from './taxi_app/Map';
 import { Registration } from './taxi_app/Registration';
+import { withAuth } from './taxi_app/AuthContext';
 
-export const AuthContext = React.createContext({
-	isAuth: false,
-	toggleAuth: () => {},
-});
+const App = props => {
+	const [ currentPage, setCurrentPage ] = useState({ currentPage: 'home' });
 
-export const App = () => {
-	const [currentPage, setCurrentPage] = useState({ currentPage: 'home' });
-	const [isAuth, toggleAuth] = useState({isAuth: false})
-
-	const PAGES = {
-		home: <Home setPage={setCurrentPage} />,
-		profile: <Profile />,
-		map: <Map />,
-		registration: <Registration setPage={setCurrentPage} />,
+	const navigateTo = page => {
+		if (props.isLoggedIn) {
+			setCurrentPage(page);
+		}
+		else {
+			setCurrentPage('home');
+		}
 	};
 
-	console.log({isAuth})
+	const PAGES = {
+		home         : <HomeWithAuth setPage={navigateTo} />,
+		profile      : <ProfileWithAuth setPage={navigateTo} />,
+		map          : <Map />,
+		registration : <Registration setPage={navigateTo} />,
+	};
 
 	return (
-		<AuthContext.Provider value={{isAuth, toggleAuth: toggleAuth}}>
+		<Fragment>
 			<header>
 				<nav>
-					<ul className="header__wrapper">
+					<ul className='header__wrapper'>
 						<li>
 							<button
-								className="header__menu btn"
+								className='header__menu btn'
 								onClick={() => {
-									setCurrentPage('home');
-								}}>
+									navigateTo('home');
+								}}
+							>
 								Home
 							</button>
 						</li>
 						<li>
 							<button
-								className="header__menu btn"
+								className='header__menu btn'
 								onClick={() => {
-									setCurrentPage('registration');
-								}}>
+									navigateTo('registration');
+								}}
+							>
 								Registration
 							</button>
 						</li>
 						<li>
 							<button
-								className="header__menu btn"
+								className='header__menu btn'
 								onClick={() => {
-									setCurrentPage('profile');
-								}}>
+									navigateTo('profile');
+								}}
+							>
 								profile
 							</button>
 						</li>
 						<li>
 							<button
-								className="header__menu btn"
+								className='header__menu btn'
 								onClick={() => {
-									setCurrentPage('map');
-								}}>
+									navigateTo('map');
+								}}
+							>
 								map
 							</button>
 						</li>
@@ -69,6 +75,8 @@ export const App = () => {
 			<main>
 				<section>{PAGES[currentPage]}</section>
 			</main>
-		</AuthContext.Provider>
+		</Fragment>
 	);
 };
+
+export default withAuth(App);
