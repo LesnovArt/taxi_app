@@ -1,5 +1,5 @@
-@import './taxi_app/css/normalize.css';
-@import './taxi_app/css/helpers.css';
+@import './css/normalize.css';
+@import './css/helpers.css';
 
 html{
 	width: 100%;
@@ -10,7 +10,7 @@ body {
 	padding: 0;
 	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 	-webkit-font-smoothing: antialiased;
-	background-image: url('./taxi_app/img/фон.jpg');
+	background-image: url('./assets/img//фон.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -24,8 +24,8 @@ code {
 
 
 
-@import './taxi_app/css/header.css';
-@import './taxi_app/css/register.css';
-@import './taxi_app/css/login.css';
-@import './taxi_app/css/profile.css';
-@import './taxi_app/css/map.css';
+@import './css/header.css';
+@import './css/register.css';
+@import './css/login.css';
+@import './css/profile.css';
+@import './css/map.css';

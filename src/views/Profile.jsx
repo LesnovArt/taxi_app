@@ -1,6 +1,6 @@
 import React from 'react';
-import { withAuth } from './AuthContext';
-import { Button } from './_helpers/Button';
+import { withAuth } from '../AuthContext';
+import { Button } from '../components/Button';
 import PropTypes from 'prop-types';
 
 export const Profile = ({ logOut, setPage }) => {

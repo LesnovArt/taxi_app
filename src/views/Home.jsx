@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import { Image } from './_helpers/Image';
-import { Button } from './_helpers/Button';
-import logo from './img/logo.png';
+import { Image } from '../components/Image';
+import { Button } from '../components/Button';
+import logo from '../assets/img/logo.png';
 import PropTypes from 'prop-types';
-import { withAuth } from './AuthContext';
+import { withAuth } from '../AuthContext';
 
 
 export const Home = props => {

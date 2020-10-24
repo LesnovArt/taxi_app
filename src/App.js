@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
-import { HomeWithAuth } from './taxi_app/Home';
-import { ProfileWithAuth } from './taxi_app/Profile';
-import { Map } from './taxi_app/Map';
-import { Registration } from './taxi_app/Registration';
-import { withAuth } from './taxi_app/AuthContext';
+import { HomeWithAuth } from './views/Home';
+import { ProfileWithAuth } from './views/Profile';
+import { Map } from './views/Map';
+import { Registration } from './views/Registration';
+import { withAuth } from './AuthContext';
 import PropTypes from 'prop-types';
 
 const App = props => {
