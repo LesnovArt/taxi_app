@@ -4,6 +4,7 @@ import { ProfileWithAuth } from './taxi_app/Profile';
 import { Map } from './taxi_app/Map';
 import { Registration } from './taxi_app/Registration';
 import { withAuth } from './taxi_app/AuthContext';
+import PropTypes from 'prop-types';
 
 const App = props => {
 	const [ currentPage, setCurrentPage ] = useState({ currentPage: 'home' });
@@ -78,5 +79,13 @@ const App = props => {
 		</Fragment>
 	);
 };
+
+App.propTypes = {
+	isLoggedIn: PropTypes.bool,
+}
+
+App.defaultProps = {
+	isLoggedIn: false,
+}
 
 export default withAuth(App);

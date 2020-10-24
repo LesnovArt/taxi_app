@@ -32,3 +32,4 @@ export const withAuth = WrappedComponent => {
 		}
 	};
 };
+

@@ -5,6 +5,7 @@ import logo from './img/logo.png';
 import PropTypes from 'prop-types';
 import { withAuth } from './AuthContext';
 
+
 export const Home = props => {
 	const goToProfile = () => {
 		props.setPage('profile');
@@ -16,7 +17,8 @@ export const Home = props => {
 		props.logIn(email.value, password.value);
 	};
 
-	const toRegister = () => {
+	const toRegister = (e) => {
+		console.log(e)
 		props.setPage('registration');
 	};
 
@@ -41,9 +43,9 @@ export const Home = props => {
 						</p>
 						<form onSubmit={authenticate} className='login-wrapper__form'>
 							<label htmlFor='email'>Email:</label>
-							<input className='login-wrapper__input' id='email' type='email' name='email' size='28' />
+							<input className='login-wrapper__input' id='email' type='email' name='email' size='28' required/>
 							<label htmlFor='password'>Password:</label>
-							<input className='login-wrapper__input' id='password' type='password' name='password' size='28' />
+							<input className='login-wrapper__input' id='password' type='password' name='password' size='28' required/>
 							<Button type='submit' className='login-wrapper__btn btn'>
 								Log In
 							</Button>

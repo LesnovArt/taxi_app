@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,9 +7,11 @@ import { AuthProvider } from './taxi_app/AuthContext';
 // import { MuiThemeProvider } from "@material-ui/core/styles";
 
 ReactDOM.render(
-		<AuthProvider>
+	<AuthProvider>
+		<StrictMode>
 			<App />
-		</AuthProvider>,
+		</StrictMode>
+	</AuthProvider>,
 	document.getElementById('root'),
 );
 
