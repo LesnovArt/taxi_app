@@ -1,32 +1,28 @@
 import React from 'react';
-import { withAuth } from '../AuthContext';
-import { Button } from '../components/Button';
 import PropTypes from 'prop-types';
+import { Button } from '../components/Button';
+import { connect } from 'react-redux';
+import { logOut } from '../actions';
 
-export const Profile = ({ logOut, setPage }) => {
+export const Profile = props => {
 	const unauthenticate = () => {
-		logOut();
-		setPage('home');
+		props.logOut();
 	};
 
 	return (
 		<p>
 			Profile
-			<Button type='submit' onClick={unauthenticate}>
-				Log out
-			</Button>
+			<Button onClick={unauthenticate}>Log out</Button>
 		</p>
 	);
 };
 
 Profile.propTypes = {
-	logOut: PropTypes.func,
-	setPage: PropTypes.func,
-}
+	logOut : PropTypes.func,
+};
 
 Profile.defaultProps = {
-	logOut: () => {},
-	setPage: () => {},
-}
+	logOut : () => {},
+};
 
-export const ProfileWithAuth = withAuth(Profile);
+export const ProfileWithAuth = connect(null, { logOut })(Profile);

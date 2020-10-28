@@ -3,30 +3,22 @@ import { Image } from '../components/Image';
 import { Button } from '../components/Button';
 import logo from '../assets/img/logo.png';
 import PropTypes from 'prop-types';
-import { withAuth } from '../AuthContext';
-
+import { connect } from 'react-redux';
+import { authenticate } from '../actions';
+import { Link } from 'react-router-dom';
 
 export const Home = props => {
-	const goToProfile = () => {
-		props.setPage('profile');
-	};
-
 	const authenticate = e => {
 		e.preventDefault();
 		const { email, password } = e.target;
-		props.logIn(email.value, password.value);
-	};
-
-	const toRegister = (e) => {
-		console.log(e)
-		props.setPage('registration');
+		props.authenticate(email.value, password.value);
 	};
 
 	return (
 		<Fragment>
 			{props.isLoggedIn ? (
 				<p>
-					You are logged in <Button onClick={goToProfile}>Go to Profile</Button>
+					You are logged in - <Link to='/profile'>GO TO PROFILE</Link>
 				</p>
 			) : (
 				<Fragment>
@@ -37,15 +29,29 @@ export const Home = props => {
 						<h1 className='register-wrapper__title'>Log in</h1>
 						<p>
 							You are a new one? -{' '}
-							<a href='#register' className='register-wrapper__link' onClick={toRegister}>
+							<a href='#register' className='register-wrapper__link'>
 								REGISTER
 							</a>
 						</p>
 						<form onSubmit={authenticate} className='login-wrapper__form'>
 							<label htmlFor='email'>Email:</label>
-							<input className='login-wrapper__input' id='email' type='email' name='email' size='28' required/>
+							<input
+								className='login-wrapper__input'
+								id='email'
+								type='email'
+								name='email'
+								size='28'
+								required
+							/>
 							<label htmlFor='password'>Password:</label>
-							<input className='login-wrapper__input' id='password' type='password' name='password' size='28' required/>
+							<input
+								className='login-wrapper__input'
+								id='password'
+								type='password'
+								name='password'
+								size='28'
+								required
+							/>
 							<Button type='submit' className='login-wrapper__btn btn'>
 								Log In
 							</Button>
@@ -58,15 +64,16 @@ export const Home = props => {
 };
 
 Home.propTypes = {
-	setPage    : PropTypes.func,
-	logIn      : PropTypes.func,
-	isLoggedIn : PropTypes.bool,
+	isLoggedIn   : PropTypes.bool,
+	authenticate : PropTypes.func,
 };
 
 Home.defaultProps = {
-	setPage    : () => {},
-	logIn      : () => {},
-	isLoggedIn : false,
+	isLoggedIn   : false,
+	authenticate : () => {},
 };
 
-export const HomeWithAuth = withAuth(Home);
+export const HomeWithAuth = connect(
+	state => ({ isLoggedIn: state.auth.isLoggedIn }),
+	{ authenticate },
+)(Home);

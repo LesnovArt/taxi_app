@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { AuthProvider } from './AuthContext';
-// import { MuiThemeProvider } from "@material-ui/core/styles";
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { store } from './store';
 
 ReactDOM.render(
-	<AuthProvider>
-		<StrictMode>
-			<App />
-		</StrictMode>
-	</AuthProvider>,
+	<StrictMode>
+		<Provider store={store}>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Provider>
+	</StrictMode>,
 	document.getElementById('root'),
 );
 

@@ -1,91 +1,41 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { HomeWithAuth } from './views/Home';
 import { ProfileWithAuth } from './views/Profile';
 import { Map } from './views/Map';
-import { Registration } from './views/Registration';
-import { withAuth } from './AuthContext';
-import PropTypes from 'prop-types';
+// import { Registration } from './views/Registration';
+import { connect } from 'react-redux';
+import { Link, Route, Switch } from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute';
 
-const App = props => {
-	const [ currentPage, setCurrentPage ] = useState({ currentPage: 'home' });
-
-	const navigateTo = page => {
-		if (props.isLoggedIn) {
-			setCurrentPage(page);
-		}
-		else {
-			setCurrentPage('home');
-		}
-	};
-
-	const PAGES = {
-		home         : <HomeWithAuth setPage={navigateTo} />,
-		profile      : <ProfileWithAuth setPage={navigateTo} />,
-		map          : <Map />,
-		registration : <Registration setPage={navigateTo} />,
-	};
-
+const App = () => {
 	return (
 		<Fragment>
 			<header>
 				<nav>
 					<ul className='header__wrapper'>
 						<li>
-							<button
-								className='header__menu btn'
-								onClick={() => {
-									navigateTo('home');
-								}}
-							>
-								Home
-							</button>
+							<Link to='/'>Home</Link>
 						</li>
 						<li>
-							<button
-								className='header__menu btn'
-								onClick={() => {
-									navigateTo('registration');
-								}}
-							>
-								Registration
-							</button>
+							<Link to='/map'>Map</Link>
 						</li>
 						<li>
-							<button
-								className='header__menu btn'
-								onClick={() => {
-									navigateTo('profile');
-								}}
-							>
-								profile
-							</button>
-						</li>
-						<li>
-							<button
-								className='header__menu btn'
-								onClick={() => {
-									navigateTo('map');
-								}}
-							>
-								map
-							</button>
+							<Link to='/profile'>Profile</Link>
 						</li>
 					</ul>
 				</nav>
 			</header>
 			<main>
-				<section>{PAGES[currentPage]}</section>
+				<section>
+					<Switch>
+						<Route path='/' component={HomeWithAuth} exact />
+						<PrivateRoute path='/map' component={Map} />
+						<PrivateRoute path='/profile' component={ProfileWithAuth} />
+					</Switch>
+				</section>
 			</main>
 		</Fragment>
 	);
 };
 
-App.propTypes = {
-	isLoggedIn: PropTypes.bool,
-}
-
-App.defaultProps = {
-	isLoggedIn: false,
-}
-
-export default withAuth(App);
+export default connect(state => ({ isLoggedIn: state.auth.isLoggedIn }))(App);

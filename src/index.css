@@ -20,6 +20,13 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+a{
+	color: #ffffff;
+	padding-right: 5px;
+}
+p{
+	color:#ffffff;
+}
 
 
 
