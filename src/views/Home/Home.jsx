@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { Image } from '../components/Image';
-import { Button } from '../components/Button';
-import logo from '../assets/img/logo.png';
+import { Image } from '../../components/Image';
+import { Button } from '../../components/Button';
+import logo from '../../assets/img/logo.png';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { authenticate } from '../actions';
+import { authenticate } from '../../store/actions';
 import { Link } from 'react-router-dom';
 
 export const Home = props => {
@@ -29,9 +29,9 @@ export const Home = props => {
 						<h1 className='register-wrapper__title'>Log in</h1>
 						<p>
 							You are a new one? -{' '}
-							<a href='#register' className='register-wrapper__link'>
+							<Link to='/registration' className='register-wrapper__link'>
 								REGISTER
-							</a>
+							</Link>
 						</p>
 						<form onSubmit={authenticate} className='login-wrapper__form'>
 							<label htmlFor='email'>Email:</label>

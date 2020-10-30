@@ -32,7 +32,7 @@ p{
 
 
 @import './css/header.css';
-@import './css/register.css';
-@import './css/login.css';
-@import './css/profile.css';
-@import './css/map.css';
+@import './views/Registration/registration.css';
+@import './views/Home/home.css';
+@import './views/Profile/profile.css';
+@import './views/Map/map.css';

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { HomeWithAuth } from './views/Home';
-import { ProfileWithAuth } from './views/Profile';
-import { Map } from './views/Map';
-// import { Registration } from './views/Registration';
+import { HomeWithAuth } from './views/Home/Home';
+import { ProfileWithAuth } from './views/Profile/Profile';
+import { Map } from './views/Map/Map';
+import { RegistrationWithAuth } from './views/Registration/Registration';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
@@ -31,6 +31,10 @@ const App = () => {
 						<Route path='/' component={HomeWithAuth} exact />
 						<PrivateRoute path='/map' component={Map} />
 						<PrivateRoute path='/profile' component={ProfileWithAuth} />
+						<Route
+							path='/registration'
+							component={RegistrationWithAuth}
+						/>
 					</Switch>
 				</section>
 			</main>
