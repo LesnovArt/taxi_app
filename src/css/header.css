@@ -1,0 +1,11 @@
+.header__wrapper {
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: start;
+
+}
+.header__menu {
+	margin-right: .5rem;
+	background-color: rgb(93, 136, 238);
+	color: rgb(238, 182, 108);
+}
